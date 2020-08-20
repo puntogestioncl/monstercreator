@@ -11,10 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import cl.desafiolatam.monstercreator.R
 import cl.desafiolatam.monstercreator.model.Monster
 import cl.desafiolatam.monstercreator.view.allMonsters.AllMonstersAdapter.MonsterViewHolder
+import com.squareup.picasso.Picasso
 
-class AllMonstersAdapter(private val listMonster: List<Monster>) : RecyclerView.Adapter<MonsterViewHolder>() {
-
-
+class AllMonstersAdapter(private val listMonster: MutableList<Monster>) : RecyclerView.Adapter<MonsterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonsterViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.monster_item, parent, false )
@@ -26,11 +25,18 @@ class AllMonstersAdapter(private val listMonster: List<Monster>) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: MonsterViewHolder, position: Int) {
+        Picasso.get().load(listMonster[position].drawable).into(holder.monsterImageView);
         holder.monsterName.text = listMonster[position].name
         holder.monsterPoint.text = listMonster[position].monsterPoints.toString()
     }
 
-    class MonsterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    internal fun updateMonster(monsterItems: List<Monster>){
+        this.listMonster.clear()
+        this.listMonster.addAll(monsterItems)
+        notifyDataSetChanged()
+    }
+
+    inner class MonsterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var monsterImageView : ImageView
         var monsterName: TextView
         var monsterPoint: TextView

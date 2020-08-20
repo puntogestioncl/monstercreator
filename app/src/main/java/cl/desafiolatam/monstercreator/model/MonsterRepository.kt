@@ -11,8 +11,10 @@ import cl.desafiolatam.monstercreator.model.db.MonsterDao
 // instead of the whole database, because you only need access to the DAO
 class MonsterRepository(private val monsterDao: MonsterDao) {
 
+    val allMonster: LiveData<List<Monster>> = monsterDao.getAllMonsters()
 
-
-
+    suspend fun insertMonster(monsterItem: Monster){
+        monsterDao.insertMonster(monsterItem)
+    }
 
 }
