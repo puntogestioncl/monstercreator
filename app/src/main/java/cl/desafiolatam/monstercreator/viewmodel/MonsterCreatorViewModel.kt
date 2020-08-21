@@ -6,6 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import cl.desafiolatam.monstercreator.model.Monster
 import cl.desafiolatam.monstercreator.model.MonsterRepository
+import cl.desafiolatam.monstercreator.model.db.MonsterDao
+import cl.desafiolatam.monstercreator.model.db.MonsterRoomDataBase
 import kotlinx.coroutines.launch
 
 /**
@@ -13,8 +15,17 @@ import kotlinx.coroutines.launch
  */
 
 // Class extends AndroidViewModel and requires application as a parameter.
-class MonsterCreatorViewModel(application: Application) : AndroidViewModel(application) {
+class MonsterCreatorViewModel( application: Application) : AndroidViewModel(application) {
 
+    private val repository: MonsterRepository
 
+    init {
+        val monsterDao = MonsterRoomDataBase.getDatabase(application).monsterDao()
+        repository = MonsterRepository(monsterDao)
+    }
+
+    fun insertMonster(monsterItem: Monster) = viewModelScope.launch {
+        repository.insertMonster(monsterItem)
+    }
 
 }

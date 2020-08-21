@@ -11,6 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutMonster"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.creature.CreatureActivity">
@@ -73,6 +74,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:entries="@array/spinner_array"
             app:layout_constraintBaseline_toBaselineOf="@+id/intelligenceLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/intelligenceLabel" />
@@ -92,6 +94,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:entries="@array/spinner_array"
             app:layout_constraintBaseline_toBaselineOf="@+id/strengthLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/intelligenceLabel" />
@@ -111,6 +114,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:entries="@array/spinner_array"
             app:layout_constraintBaseline_toBaselineOf="@+id/enduranceLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/intelligenceLabel" />

@@ -3,4 +3,10 @@
     <string name="action_all_delete">Borrar Monstruos</string>
     <string name="action_create_monster">Crear Monstruo</string>
     <string name="avatar">Monstruo</string>
+
+    <string-array name="spinner_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>
