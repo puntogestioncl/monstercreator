@@ -12,5 +12,6 @@ class MonsterCreatorActivity : AppCompatActivity() {
 
 
         // in this activity must place a recyclerView with all the monster on the DB
+
     }
 }
